@@ -26,6 +26,7 @@ public class LoggerFactory {
         this.debugEnabledClasses = Arrays.asList(debugEnabledClasses);
         this.logConsumer = System.out::println;
         this.logFormat = "[%prefix%] (%class%) %message%";
+        this.prefix = prefix;
     }
 
     public List<Boolean> toggleDebugClasses(Class<?>... classes) {
@@ -42,9 +43,10 @@ public class LoggerFactory {
     }
 
     public void log(LogLevel logLevel, Class<?> clazz, Object... parts) {
+        String joinedParts = Arrays.stream(parts).map(Object::toString).collect(Collectors.joining(", "));
         String message = getLogFormat()
                 .replace("%class%", clazz.getSimpleName())
-                .replace("%message%", Arrays.stream(parts).map(Object::toString).collect(Collectors.joining(", ")))
+                .replace("%message%", joinedParts)
                 .replace("%prefix%", prefix);
         getLogConsumer().accept(message);
     }
