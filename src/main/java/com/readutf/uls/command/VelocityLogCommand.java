@@ -1,4 +1,4 @@
-package com.readutf.logger.command;
+package com.readutf.uls.command;
 
 public class VelocityLogCommand {
 

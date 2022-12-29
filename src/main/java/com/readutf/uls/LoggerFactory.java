@@ -1,4 +1,4 @@
-package com.readutf.logger;
+package com.readutf.uls;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -23,7 +23,7 @@ public class LoggerFactory {
 
 
     public LoggerFactory(String prefix, Class<?>... debugEnabledClasses) {
-        this.debugEnabledClasses = Arrays.asList(debugEnabledClasses);
+        this.debugEnabledClasses = new ArrayList<>(Arrays.asList(debugEnabledClasses));
         this.logConsumer = System.out::println;
         this.logFormat = "[%prefix%] (%class%) %message%";
         this.prefix = prefix;

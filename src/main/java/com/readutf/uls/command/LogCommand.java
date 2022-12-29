@@ -1,10 +1,10 @@
-package com.readutf.logger.command;
+package com.readutf.uls.command;
 
 import co.aikar.commands.BaseCommand;
 import co.aikar.commands.CommandIssuer;
 import co.aikar.commands.annotation.CommandAlias;
 import co.aikar.commands.annotation.Subcommand;
-import com.readutf.logger.LoggerFactory;
+import com.readutf.uls.LoggerFactory;
 import lombok.AllArgsConstructor;
 
 import java.util.List;
