@@ -14,7 +14,7 @@ public class LoggerFactory {
 
     //settings
     private String prefix;
-    @Setter boolean debugAll;
+    boolean debugAll;
     private List<Class<?>> debugEnabledClasses;
 
     //logging
@@ -27,6 +27,11 @@ public class LoggerFactory {
         this.logConsumer = System.out::println;
         this.logFormat = "[%prefix%] (%class%) %message%";
         this.prefix = prefix;
+    }
+
+    public LoggerFactory setDebugAll(boolean debugAll) {
+        this.debugAll = debugAll;
+        return this;
     }
 
     public List<Boolean> toggleDebugClasses(Class<?>... classes) {
